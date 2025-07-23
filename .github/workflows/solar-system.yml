@@ -6,7 +6,12 @@ on:
     branches:
       - main
       - 'feature/*'
-    
+
+env:
+  MONGO_USERNAME: superuser
+  MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD }}
+  MONGO_URI: mongodb+srv://${{ vars.MONGO_USERNAME }}:${{ vars.MONGO_PASSWORD }}@supercluster.d83jj.mongodb.net/superData      
+
 jobs:
     unit-testing:
         name: Unit Testing
